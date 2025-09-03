@@ -34,4 +34,33 @@ def plot_sentiment_trend(df, output_path='sentiment_trend.png'):
     plt.close()
     print(f'Sentiment trend plot saved to {output_path}')
 
+#New added
+def plot_sentiment_bar(sentiment_counts, output_path='sentiment_bar.png'):
+    labels = list(sentiment_counts.keys())
+    values = list(sentiment_counts.values())
+    colors = ['#66b3ff', '#ff9999', '#99ff99']  
 
+    plt.figure(figsize=(8, 6))
+    sns.barplot(x=labels, y=values, palette=colors)
+    plt.title('Sentiment Count Distribution')
+    plt.xlabel('Sentiment')
+    plt.ylabel('Count')
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+    print(f'Sentiment bar plot saved to {output_path}')
+
+#New added
+def plot_top_keywords(key_themes, output_path='top_keywords.png', top_n=20):
+    words = [w for w, _ in key_themes[:top_n]]
+    counts = [c for _, c in key_themes[:top_n]]
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=counts, y=words, palette='viridis')
+    plt.title(f'Top {top_n} Keywords')
+    plt.xlabel('Frequency')
+    plt.ylabel('Keyword')
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+    print(f'Top keywords plot saved to {output_path}')
