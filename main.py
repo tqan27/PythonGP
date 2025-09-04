@@ -197,7 +197,7 @@ def main():
     print(f"[INFO] Figures saved to: {output_dir}")
 
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     try:
         main()
     except Exception as e:
